@@ -1,0 +1,10 @@
+"VertexLitGeneric"
+{	
+	"$baseTexture" "models\rat\rat_white"
+	"$bumpmap" "models\rat\rat_Normal2"
+	"$model" 1
+	"$rimlight" "1"
+	"$rimlightexponent" "8"
+	"$rimlightboost" "2"
+	"$phong"     "1"
+}
