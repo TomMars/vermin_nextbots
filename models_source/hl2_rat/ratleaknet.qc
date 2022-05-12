@@ -1,7 +1,7 @@
 // Created by Crowbar 0.71
 
-$modelname "newrat.mdl"
-$cdmaterials "models\rat\"
+$modelname "vermin\rat.mdl"
+$cdmaterials "vermin\"
 
 $bodygroup "studio"
 {
@@ -63,7 +63,8 @@ $surfaceprop "flesh"
 $contents "solid"
 $illumposition 0 6.683 4.919
 $cbox 0 0 0 0 0 0
-$bbox -24.523 -3.988 0 11.157 3.988 9.839
+//$bbox -24.523 -3.988 0 11.157 3.988 9.839
+$bbox -10 -3.988 0 11.157 3.988 9.839
 
 $hboxset "default"
 $hbox 0 "rat.hips" -3.5 -4.5 -3.75 2.5 2.5 3.75
@@ -89,19 +90,107 @@ $definebone "rat.tail1" "rat.hips" 3.069408 -1.178342 0 0 -20.411566 89.999982 0
 $definebone "rat.tail2" "rat.tail1" 6.026319 0 0 1.756976 0 0 0 0 0 0 0 0
 $definebone "rat.tail3" "rat.tail2" 6.031434 0 0 4.27782 0 0 0 0 0 0 0 0
 
-$sequence "idle1" "anims\idle1.smd" {
-	fps 30
+$sequence "reference" {
+	"anims\reference.smd"
+	fadein 0.2
+	fadeout 0.2
+	fps 15
+}
+
+$sequence "idle" {
+	"anims\idle1.smd"
 	activity "ACT_IDLE" 1
 	fadein 0.2
 	fadeout 0.2
+	fps 30
 	loop
 }
 
-$sequence "ragdoll"  "anims\a_ragdoll.smd" {
+$sequence "idle2" {
+	"anims\idle2.smd"
+	fadein 0.2
+	fadeout 0.2
 	fps 30
+	loop
+}
+
+$sequence "idle3" {
+	"anims\idle3.smd"
+	fadein 0.2
+	fadeout 0.2
+	fps 30
+	loop
+}
+
+$sequence "walk" {
+	"anims\walk.smd"
+	activity "ACT_WALK" 1
+	fadein 0.2
+	fadeout 0.2
+	fps 30
+	loop
+	walkframe 1 LX LY
+	walkframe 2 LX LY
+	walkframe 3 LX LY
+	walkframe 4 LX LY
+	walkframe 5 LX LY
+	walkframe 6 LX LY
+	walkframe 7 LX LY
+	walkframe 8 LX LY
+	walkframe 9 LX LY
+	walkframe 10 LX LY
+	walkframe 11 LX LY
+	walkframe 12 LX LY
+	walkframe 13 LX LY
+	walkframe 14 LX LY
+	walkframe 15 LX LY
+	walkframe 16 LX LY
+	walkframe 17 LX LY
+	walkframe 18 LX LY
+	walkframe 19 LX LY
+	walkframe 20 LX LY
+	walkframe 21 LX LY
+	walkframe 22 LX LY
+	walkframe 23 LX LY
+	walkframe 24 LX LY
+	walkframe 25 LX LY
+	walkframe 26 LX LY
+	walkframe 27 LX LY
+	walkframe 28 LX LY
+	walkframe 29 LX LY
+	LX LY
+}
+
+$sequence "run" {
+	"anims\run.smd"
+	activity "ACT_RUN" 1
+	fadein 0.2
+	fadeout 0.2
+	fps 30
+	loop
+	walkframe 1 LX LY
+	walkframe 2 LX LY
+	walkframe 3 LX LY
+	walkframe 4 LX LY
+	walkframe 5 LX LY
+	walkframe 6 LX LY
+	walkframe 7 LX LY
+	walkframe 8 LX LY
+	walkframe 9 LX LY
+	walkframe 10 LX LY
+	walkframe 11 LX LY
+	walkframe 12 LX LY
+	walkframe 13 LX LY
+	walkframe 14 LX LY
+	LX LY
+}
+
+$sequence "ragdoll" {
+	"anims\ragdoll.smd"
 	activity "ACT_DIERAGDOLL" 1
 	fadein 0.2
 	fadeout 0.2
+	fps 30
 }
 
 $collisionjoints "ratleaknet_physics.smd"
