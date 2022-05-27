@@ -28,42 +28,45 @@ $lod 30
 	replacemodel "rat_reference.smd" "rat_reference_LOD2.smd"
 
 	replacebone "rat.tail3" "rat.tail2"
-	replacebone "rat.tarsus_r" "rat.tibia_r"
 	replacebone "rat.tarsus_L" "rat.tibia_L"
+	replacebone "rat.tarsus_r" "rat.tibia_r"
 }
 
 $lod 45
 {
 	replacemodel "rat_reference.smd" "rat_reference_LOD3.smd"
 
-	replacebone "rat.tail2" "rat.tail1"
+	bonetreecollapse "rat.tail1"
+	replacebone "rat.tarsus_L" "rat.tibia_L"
+	replacebone "rat.tarsus_r" "rat.tibia_r"
 }
 
 $lod 60
 {
 	replacemodel "rat_reference.smd" "rat_reference_LOD4.smd"
 
-	replacebone "rat.arm_r_radius" "rat.arm_r_humerus"
+	bonetreecollapse "rat.tail1"
+	bonetreecollapse "rat.femur_L"
+	bonetreecollapse "rat.femur_r"
 	replacebone "rat.arm_L_radius" "rat.arm_L_humerus"
-	replacebone "rat.tibia_r" "rat.femur_r"
-	replacebone "rat.tibia_L" "rat.femur_L"
+	replacebone "rat.arm_r_radius" "rat.arm_r_humerus"
 }
 
 $shadowlod
 {
 	replacemodel "rat_reference.smd" "rat_reference_LOD4.smd"
 
-	replacebone "rat.arm_r_radius" "rat.arm_r_humerus"
+	bonetreecollapse "rat.tail1"
+	bonetreecollapse "rat.femur_L"
+	bonetreecollapse "rat.femur_r"
 	replacebone "rat.arm_L_radius" "rat.arm_L_humerus"
-	replacebone "rat.tibia_r" "rat.femur_r"
-	replacebone "rat.tibia_L" "rat.femur_L"
+	replacebone "rat.arm_r_radius" "rat.arm_r_humerus"
 }
 
 $surfaceprop "flesh"
 $contents "solid"
 $illumposition 0 6.683 4.919
 $cbox 0 0 0 0 0 0
-//$bbox -24.523 -3.988 0 11.157 3.988 9.839
 $bbox -10 -3.988 0 11.157 3.988 9.839
 
 $hboxset "default"
@@ -90,8 +93,9 @@ $definebone "rat.tail1" "rat.hips" 3.069408 -1.178342 0 0 -20.411566 89.999982 0
 $definebone "rat.tail2" "rat.tail1" 6.026319 0 0 1.756976 0 0 0 0 0 0 0 0
 $definebone "rat.tail3" "rat.tail2" 6.031434 0 0 4.27782 0 0 0 0 0 0 0 0
 
-$sequence "reference" {
-	"anims\reference.smd"
+$sequence "ragdoll" {
+	"anims\ragdoll.smd"
+	activity "ACT_DIERAGDOLL" 1
 	fadein 0.2
 	fadeout 0.2
 	fps 15
@@ -183,14 +187,6 @@ $sequence "run" {
 	walkframe 13 LX LY
 	walkframe 14 LX LY
 	LX LY
-}
-
-$sequence "ragdoll" {
-	"anims\ragdoll.smd"
-	activity "ACT_DIERAGDOLL" 1
-	fadein 0.2
-	fadeout 0.2
-	fps 30
 }
 
 $collisionjoints "ratleaknet_physics.smd"
