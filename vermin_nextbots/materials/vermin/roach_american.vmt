@@ -1,0 +1,9 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "vermin/roach_american"
+	"$bumpmap" "vermin/roach_normal"
+	"$rimlight" "1"
+	"$rimlightexponent" "8"
+	"$rimlightboost" "2"
+	"$phong"     "1"
+}

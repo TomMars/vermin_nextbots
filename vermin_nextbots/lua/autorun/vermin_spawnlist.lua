@@ -9,3 +9,9 @@ list.Set("NPC", "vermin_lab_rat", {
     Class = "vermin_lab_rat",
     Category = "Nextbot Animals"
 })
+
+list.Set("NPC", "vermin_cockroach", {
+    Name = "Cockroach",
+    Class = "vermin_cockroach",
+    Category = "Nextbot Animals"
+})

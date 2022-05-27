@@ -4,11 +4,12 @@ ENT.Base 			= "base_nextbot"
 
 ENT.model = {}
 ENT.skin = {0}
-ENT.health = 0
-ENT.speed = 0
-ENT.run_speed = 0
-ENT.radius = 0
+ENT.health = 10
+ENT.speed = 100
+ENT.run_speed = 250
+ENT.radius = 200
 ENT.vradius = 3     --vehicle "hitbox"
+ENT.blood = BLOOD_COLOR_RED
 
 ENT.idle_snd = {}
 ENT.hurt_snd = {}
@@ -38,6 +39,7 @@ function ENT:Initialize()
     self:SetModel(self.model[math.random(#self.model)])
     self:SetSkin(self.skin[math.random(#self.skin)])
     self:SetHealth(self.health)
+    self:SetBloodColor(self.blood)
     self.target = nil
     self.fear = false
 end
